@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QWidget" name="plotWidget" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>200</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="actionImport"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>操作</string>
+    </property>
+    <addaction name="actionGetProjectionInfo"/>
+    <addaction name="actionConvertProjection"/>
+    <addaction name="actionShowAttributeTable"/>
+    <addaction name="actionClearData"/>
+   </widget>
+   <widget class="QMenu" name="menuExport">
+    <property name="title">
+     <string>导出</string>
+    </property>
+    <addaction name="actionExportAsShp"/>
+    <addaction name="actionExportAsPng"/>
+    <addaction name="actionExportAsCSV"/>
+   </widget>
+   <widget class="QMenu" name="menu_help">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="actionUsageInstructions"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menuExport"/>
+   <addaction name="menu_help"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionImport">
+   <property name="text">
+    <string>导入ShapeFile文件</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </action>
+  <action name="actionGetProjectionInfo">
+   <property name="text">
+    <string>获取投影信息</string>
+   </property>
+  </action>
+  <action name="actionConvertProjection">
+   <property name="text">
+    <string>转换投影</string>
+   </property>
+  </action>
+  <action name="actionClearData">
+   <property name="text">
+    <string>清除数据</string>
+   </property>
+  </action>
+  <action name="actionShowAttributeTable">
+   <property name="text">
+    <string>显示属性表</string>
+   </property>
+  </action>
+  <action name="actionExportAsPng">
+   <property name="text">
+    <string>导出为png</string>
+   </property>
+  </action>
+  <action name="actionExportAsShp">
+   <property name="text">
+    <string>导出为ShapeFile</string>
+   </property>
+  </action>
+  <action name="actionExportAsCSV">
+   <property name="text">
+    <string>导出为csv</string>
+   </property>
+  </action>
+  <action name="actionUsageInstructions">
+   <property name="text">
+    <string>使用说明</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>关于YuanGIS</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
