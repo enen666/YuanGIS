@@ -149,11 +149,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             return
 
         try:
-            self.figure.clear()
-            self.ax = self.figure.add_subplot(111)
-            self.gdf.plot(ax=self.ax, edgecolor="k", linewidth=0.5)
-            self.ax.autoscale()
-            self.canvas.draw()
+            self.figure.clear() # 清空Matplotlib画布，移除之前的图形元素
+            self.ax = self.figure.add_subplot(111) # 创建新的坐标系，111表示单视图布局
+            self.gdf.plot(ax=self.ax, edgecolor="k", linewidth=0.5) # 调用geopandas的矢量绘图方法，设置黑色边界线（edgecolor="k"）和0.5线宽
+            self.ax.autoscale() # 自动调整坐标轴范围以适应地理数据空间范围
+            self.canvas.draw() # 强制重绘Qt画布组件，实现可视化更新
         except Exception as e:
             self.update_status_message(f"渲染错误: {str(e)}")
 
@@ -363,7 +363,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             "<p>开发者：邹卓江</p>"
             "<p>学术指导：屈永华 教授</p>"
             "<h3>开源致谢</h3>"
-            "<p>本软件基于开源项目 BanyanGIS 二次开发，特别感谢其开发者提供的核心技术支持。</p>"
+            "<p>本软件基于开源项目 BanyanGIS 二次开发，特别感谢其开发者窦家兴、谭依然同学提供的核心技术支持。</p>"
             "<p>原项目地址：<a href='https://github.com/BeanJ/BanyanGIS'>github.com/BeanJ/BanyanGIS</a></p>"
         )
         QMessageBox.about(self, "关于YuanGIS", about_text)
@@ -385,12 +385,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 # 以下代码引用自 BanyanGIS 项目（MIT协议），并针对本项目进行修改（Zhuojiang Zou，2025/04/03）
 # 原项目地址：https://github.com/BeanJ/BanyanGIS
 class CustomNavigationToolbar(NavigationToolbar):
-    # 重写工具项列表，移除 'Save' 条目
+    '''工具栏'''
     toolitems = [t for t in NavigationToolbar.toolitems if t[0] != "Save"]
 
     def __init__(self, canvas, parent, coordinates=True):
         super().__init__(canvas, parent, coordinates)
-        # 移除了 'Save' 的图标路径
         self._icon_paths = {
             "Home": r"icons\home.png",
             "Back": r"icons\pfanhui.png",
@@ -399,7 +398,6 @@ class CustomNavigationToolbar(NavigationToolbar):
             "Zoom": r"icons\zoom.png",
             "Subplots": r"icons\edit-border.png",
             "Customize": r"icons\edit-text.png",
-            # "Save": r"icons\save.png"  # 已移除
         }
         self._update_icons()
 
